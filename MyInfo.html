@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tanvir Rahman Taiyeb - Portfolio</title>
+    <style>
+        /* Internal CSS rules */
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #333;
+            font-size: 24px;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .profile-pic {
+            display: block;
+            margin: 20px auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .contact-form label,
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form select,
+        .contact-form textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-input-group {
+            margin-top: 20px;
+        }
+
+        .form-input-group input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .social-icons {
+            text-align: center;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+        }
+    </style>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body style="background-color: #f5f5f5; font-family: Arial, sans-serif; margin: 0; padding: 0;">
+
+    <div class="container">
+        <!-- Introduction Section -->
+        <h1 style="color: #333; font-size: 24px;">Tanvir Rahman Taiyeb</h1>
+        <p style="font-style: italic; font-size: 16px;">I'm a first-year Cybersecurity major at Deakin University. I'm passionate about mastering the skills to protect digital landscapes from evolving cyber threats. Through rigorous studies and hands-on experience, I'm building a strong foundation in encryption, ethical hacking, and digital forensics. My goal is to not only excel academically but also make a proactive impact in advancing cybersecurity.</p>
+
+        <!-- Profile Picture -->
+        <img src="https://courseseeker.edu.au/assets/images/institutions/3030.png"
+             alt="Profile Picture"
+             class="profile-pic"
+             style="width: 150px; height: 150px; border-radius: 50%; margin: 20px auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+        <!-- Professional Table -->
+        <table style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">Hobbies</th>
+                <th style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">Interests</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">Photography</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Web Development</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">Cycling</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Cybersecurity</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">Reading</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Artificial Intelligence</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="container">
+        <form action="submit_form.php" method="post" class="contact-form">
+            <h2 style="color: #333; font-size: 24px;">Contact Form</h2>
+            <!-- Form fields with inline styles -->
+            <div class="form-label-group">
+                <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
+                <input type="text" id="name" name="name" required style="width: 100%; padding: 5px;">
+            </div>
+            <div class="form-label-group">
+                <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+                <input type="email" id="email" name="email" required style="width: 100%; padding: 5px;">
+            </div>
+            <div class="form-label-group">
+                <label for="message" style="display: block; margin-bottom: 5px;">Message:</label>
+                <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 5px;"></textarea>
+            </div>
+            <div class="form-label-group">
+                <label for="subject" style="display: block; margin-bottom: 5px;">Subject:</label>
+                <select id="subject" name="subject" style="width: 100%; padding: 5px;">
+                    <option value="general">General Inquiry</option>
+                    <option value="collaboration">Collaboration Opportunity</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+            </div>
+            <!-- Submit button -->
+            <div class="form-input-group" style="margin-top: 10px;">
+                <input type="submit" value="Submit" style="background-color: #333; color: #fff; border: none; padding: 10px 20px; cursor: pointer;">
+            </div>
+        </form>
+    </div>
+
+    <!-- Connect with Me Section -->
+    <div class="container">
+        <div class="social-media-section">
+            <h2 style="color: #333; font-size: 24px;">Connect with Me</h2>
+            <div class="social-icons">
+                <!-- Link to LinkedIn profile -->
+                <a href="https://www.linkedin.com/in/tanvir-rahman-taiyeb/" class="social-icon-link" target="_blank">
+                    <img src="https://images.template.net/100603/small-linkedin-icon-clipart-q5ttq.jpg"
+                         alt="LinkedIn Icon"
+                         class="social-icon"
+                         style="width: 50px; height: 50px;">
+                </a>
+                <!-- Add more social media icons and links here -->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
