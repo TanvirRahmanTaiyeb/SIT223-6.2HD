@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-project",
+  "version": "1.0.0",
+  "description": "Portfolio project for DevOps pipeline demonstration",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Starting the project...' && exit 0",
+    "build": "echo 'Building the project...' && exit 0",
+    "test": "echo 'Running tests...' && exit 0"
+  },
+  "author": "Tanvir Rahman Taiyeb",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
