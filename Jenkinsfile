@@ -20,7 +20,11 @@ pipeline {
                 // Run the build script
                 bat 'npm run build'
                 // Build Docker image using custom Dockerfile name
-                bat 'docker build -t portfolio-project:latest -f Dockerfile.dockerfile .'
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    bat "docker login -u %DOCKER_USER% -p %DOCKER_PASS%"
+                    bat 'docker build -t portfolio-project:latest -f Dockerfile.dockerfile .'
+                    bat 'docker logout'
+                }
                 // Save the Docker image as an artifact
                 bat 'docker save portfolio-project:latest -o portfolio-project.tar'
             }
