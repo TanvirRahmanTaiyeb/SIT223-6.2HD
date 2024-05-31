@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from Git
-                git 'https://github.com/TanvirRahmanTaiyeb/Sit223-6.2HD.git'
+                git branch: 'main', url: 'https://github.com/TanvirRahmanTaiyeb/Sit223-6.2HD.git'
             }
         }
         stage('Build') {
