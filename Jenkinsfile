@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        SONARQUBE_ENV = 'SonarQube' // Ensure this matches your SonarQube environment name
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -35,13 +39,13 @@ pipeline {
         }
         stage('Code Quality Analysis') {
             environment {
-                // Replace with your SonarQube installation name
                 scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
             }
             steps {
                 echo 'Analyzing code quality...'
-                // Run SonarQube analysis
-                bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=portfolio-project -Dsonar.sources=. -Dsonar.host.url=http://your-sonarqube-server -Dsonar.login=your-sonarqube-token"
+                withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                    bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=portfolio-project -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=%SONAR_TOKEN%"
+                }
             }
         }
         stage('Deploy') {
