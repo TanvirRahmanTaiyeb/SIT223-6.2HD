@@ -1,68 +1,49 @@
 pipeline {
     agent any
 
-    environment {
-        SONARQUBE_ENV = 'SonarQube'
-    }
-
     stages {
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                sh 'mvn clean package'
+                // Add your build steps here
+                bat 'npm install'
+                bat 'npm run build'
             }
         }
-
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'mvn test'
+                // Add your test steps here
+                bat 'npm test'
             }
         }
-
         stage('Code Quality Analysis') {
             steps {
-                echo 'Running code quality analysis...'
-                withSonarQubeEnv(SONARQUBE_ENV) {
-                    sh 'mvn sonar:sonar'
-                }
+                echo 'Analyzing code quality...'
+                // Add your code quality analysis steps here
+                // Example: bat 'sonar-scanner'
             }
         }
-
-        stage('Deploy to Test') {
+        stage('Deploy') {
             steps {
-                echo 'Deploying to test environment...'
-                sh 'docker-compose up -d'
+                echo 'Deploying the application...'
+                // Add your deploy steps here
+                // Example: bat 'deploy-command'
             }
         }
-
-        stage('Release to Production') {
+        stage('Release') {
             steps {
-                echo 'Releasing to production...'
-                sh 'eb deploy production'
+                echo 'Releasing the application...'
+                // Add your release steps here
+                // Example: bat 'release-command'
             }
         }
-
-        stage('Monitoring') {
+        stage('Monitoring and Alerting') {
             steps {
-                echo 'Starting monitoring and alerting...'
-                sh 'datadog-agent start'
+                echo 'Setting up monitoring and alerting...'
+                // Add your monitoring and alerting steps here
+                // Example: bat 'monitoring-command'
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Cleaning up...'
-            cleanWs()
-        }
-
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-
-        failure {
-            echo 'Pipeline failed!'
         }
     }
 }
