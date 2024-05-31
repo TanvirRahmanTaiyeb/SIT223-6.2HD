@@ -2,26 +2,34 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from Git
+                git 'https://github.com/TanvirRahmanTaiyeb/Sit223-6.2HD.git'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                // Add your build steps here
+                // Install npm dependencies
                 bat 'npm install'
+                // Run the build script
                 bat 'npm run build'
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // Add your test steps here
+                // Run the tests
                 bat 'npm test'
             }
         }
         stage('Code Quality Analysis') {
             steps {
                 echo 'Analyzing code quality...'
-                // Add your code quality analysis steps here
-                // Example: bat 'sonar-scanner'
+                // Example for using a code quality tool like SonarQube
+                // Ensure you have SonarQube scanner installed and configured
+                // bat 'sonar-scanner'
             }
         }
         stage('Deploy') {
